@@ -3,114 +3,142 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Fragments.HomeFragment">
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager"
-        android:layout_width="309dp"
-        android:layout_height="316dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginRight="53dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchview"/>
-
-    <TextView
-        android:id="@+id/upcoming_birthdays"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upcoming Birthdays"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#393939"
-        android:layout_marginLeft="30.68dp"
-        android:layout_marginRight="198.55dp"
-        android:layout_marginTop="44.65dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewpager" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="37dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upcoming_birthdays" />
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="32dp"
-        android:layout_marginLeft="337dp"
-        android:layout_marginBottom="23.76dp"
-        android:clickable="true"
-        app:tint= "@color/white"
-        android:src="@drawable/ic_float"
-        android:tint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <SearchView
-        android:id="@+id/searchview"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#ECE6E6"
-        android:layout_marginTop="25.12dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginRight="28dp"
-        android:background="@drawable/ic_searchbar_background"
-        android:queryHint="Search for celebrants"
-        android:iconifiedByDefault="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/greetings"
-        android:clickable="true"
-        android:layoutDirection="rtl"
-        android:textDirection="rtl"
-        android:focusable="true" />
-
-    <ImageView
-        android:id="@+id/notification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_notification_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/hearts"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50.51dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginLeft="143dp"/>
-
-    <ImageView
-        android:id="@+id/hearts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_hearts_1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/greetings"
-        android:layout_marginTop="50.59dp"
-        android:layout_marginLeft="12.37dp"/>
+    tools:context="com.example.weekfour_ui_viewpager_recyclerview.fragments.HomeFragment">
 
     <TextView
         android:id="@+id/greetings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/greetings"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:layout_marginLeft="28.1dp"
         android:layout_marginTop="50.59dp"
+        android:text="@string/greetings"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/hearts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12.37dp"
+        android:layout_marginTop="50.59dp"
+        android:src="@drawable/ic_hearts_1"
+        app:layout_constraintLeft_toRightOf="@id/greetings"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="143dp"
+        android:layout_marginTop="50.51dp"
+        android:layout_marginRight="32dp"
+        android:src="@drawable/ic_notification_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hearts"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="90dp"
+        app:layout_constraintTop_toBottomOf="@id/hearts"
+        android:id="@+id/subConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subConstraint">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
+                android:layout_width="309dp"
+                android:layout_height="316dp"
+                android:layout_marginLeft="52dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="53dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/searchview" />
+
+            <TextView
+                android:id="@+id/upcoming_birthdays"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30.68dp"
+                android:layout_marginTop="44.65dp"
+                android:layout_marginRight="198.55dp"
+                android:text="Upcoming Birthdays"
+                android:textColor="#393939"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewpager" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="37dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/upcoming_birthdays" />
 
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="337dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="23.76dp"
+                android:clickable="true"
+                android:src="@drawable/ic_float"
+                android:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:tint="@color/white" />
+
+            <SearchView
+                android:id="@+id/searchview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="28dp"
+                android:background="@drawable/ic_searchbar_background"
+                android:backgroundTint="#ECE6E6"
+                android:clickable="true"
+                android:focusable="true"
+                android:iconifiedByDefault="false"
+                android:layoutDirection="rtl"
+                android:queryHint="Search for celebrants"
+                android:textDirection="rtl"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

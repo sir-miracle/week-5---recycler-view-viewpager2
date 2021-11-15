@@ -1,11 +1,10 @@
 package com.example.weekfour_ui_viewpager_recyclerview
 
-import Fragments.GiftsFragment
-import Fragments.HomeFragment
-import Fragments.PeopleFragment
+import com.example.weekfour_ui_viewpager_recyclerview.fragments.GiftsFragment
+import com.example.weekfour_ui_viewpager_recyclerview.fragments.HomeFragment
+import com.example.weekfour_ui_viewpager_recyclerview.fragments.PeopleFragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         home.setOnClickListener {
             replaceFragment(homeFragment)
         }
+
 
         val people = findViewById<BottomNavigationItemView>(R.id.peope_navigation)
         people.setOnClickListener {

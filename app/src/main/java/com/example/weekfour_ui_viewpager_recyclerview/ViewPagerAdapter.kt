@@ -17,13 +17,10 @@ class ViewPagerAdapter(val images: List<Int>) :RecyclerView.Adapter<ViewPagerAda
 
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
         val currentImage = images[position]
-        //var imageTarget =
         holder.itemView.findViewById<ImageView>(R.id.view_pager_image).setImageResource(currentImage)
-
-
     }
 
     override fun getItemCount(): Int {
-        return images.size
+        return images.size // the size of the list holding the image items to be displayed
     }
 }
